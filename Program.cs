@@ -1,3 +1,5 @@
+using Ejmmaa.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
@@ -5,6 +7,8 @@ builder.Services.AddSingleton<IConfiguration>(builder.Configuration); // Registe
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+
+builder.Services.AddScoped<DbHelper>(); a
 
 var app = builder.Build();
 

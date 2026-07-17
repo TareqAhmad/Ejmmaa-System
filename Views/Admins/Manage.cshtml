@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "إدارة العشيرة الداخلية - إجماع";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/SuperAdmin/dashboard.css" />
+    <link rel="stylesheet" href="~/css/Admins/Manage.css" />
+}
+
+<div class="dashboard-wrapper-layout">
+    <aside class="sidebar-wrapper">
+        <div class="sidebar-header"><h4 class="text-gold fw-bold">لجنة العشيرة</h4></div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active"><i class="bi bi-diagram-3"></i> أقسام العشيرة</a>
+            <a href="#" class="nav-item"><i class="bi bi-people"></i> كشف الأفراد</a>
+            <a href="#" class="nav-item"><i class="bi bi-gear"></i> الإعدادات</a>
+        </nav>
+    </aside>
+
+    <main class="main-content-dashboard">
+        <header class="d-flex justify-content-between mb-5">
+            <h2 class="fw-bold">لوحة إدارة الهيئة العامة</h2>
+            <button class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#addMemberModal">+ إضافة فرد جديد</button>
+        </header>
+
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="content-card">
+                    <table class="table ejmaa-table">
+                        <thead>
+                            <tr><th>الاسم الكامل</th><th>الرقم الوطني</th><th>القسم</th><th>الإجراءات</th></tr>
+                        </thead>
+                        <tbody id="membersTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    <script src="~/JS/Admins/Manage.js"></script>
+}
