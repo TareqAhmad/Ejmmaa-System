@@ -7,6 +7,6 @@ namespace Ejmmaa.Services.Interfaces
 {
     public interface ISupervisorsService
     {
-        public UserInfo Login(LoginRequest loginRequest);
+        public UserViewModel Login(LoginRequest loginRequest);
     }
 }

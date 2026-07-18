@@ -6,6 +6,6 @@ namespace Ejmmaa.Services.Interfaces
 {
     public interface ISuperAdminService
     {
-        public UserInfo Login(LoginRequest loginRequest);
+        public UserViewModel Login(LoginRequest loginRequest);
     }
 }

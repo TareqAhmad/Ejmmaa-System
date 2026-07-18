@@ -7,6 +7,6 @@ namespace Ejmmaa.Services.Interfaces
 {
     public interface IVotersService
     {
-        public UserInfo Login(LoginRequest loginRequest);
+        public UserViewModel Login(LoginRequest loginRequest);
     }
 }

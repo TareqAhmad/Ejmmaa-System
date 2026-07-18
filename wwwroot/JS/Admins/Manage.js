@@ -1,29 +1,84 @@
 $(document).ready(function () {
-    loadMembers(); // تحميل البيانات عند فتح الصفحة
+   
+   
+   
+   initializePage();
+
 });
 
-function loadMembers() {
-    $.ajax({
-        url: '/ClanAdmin/GetMembers', // مسار الـ Action في السيرفر
-        type: 'GET',
-        success: function (data) {
-            let rows = '';
-            data.forEach(member => {
-                rows += `<tr>
-                    <td>${member.fullName}</td>
-                    <td>${member.nationalId}</td>
-                    <td>${member.sectionName}</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-primary" onclick="editMember(${member.id})">تعديل</button>
-                    </td>
-                </tr>`;
-            });
-            $('#membersTableBody').html(rows);
-        }
-    });
+
+
+// --- 2. Initialization ---
+function initializePage() {
+    loadClanSections()
+    loadClanMembers();
 }
 
-function editMember(id) {
-    // كود فتح مودال التعديل وجلب بيانات الفرد
-    alert("جارٍ فتح بيانات العضو رقم: " + id);
+
+function loadClanSections()
+{
+    
+    apiRetrieve(
+      '/Admins/GetClanSections',
+      null,
+      function(response) {   
+           if (response.success) {
+                var TableSection = $("#ClanSectionsBody"); 
+                TableSection.empty(); 
+                response.data.forEach(cs =>{
+                    TableSection.append(`
+                        <tr>
+                            <td><input type="checkbox" class="section-filter" value="${cs.sectionId}" id="Select-Section"></td>
+                            <td> ${cs.sectionName}</td>
+                            <td> 5 </td>
+                            <td>
+                                <button class="btn btn-sm btn-warning" onclick="editSection(${cs.sectionId})">تعديل</button>
+                                <button class="btn btn-sm btn-danger"  onclick="deleteSection(${cs.sectionId})">حذف</button>
+                            </td>
+                        </tr>`); 
+                });
+          } else {
+             showToast(response.message,'error');
+          }
+       }, 
+        function(error) {
+             $("#MsgError").removeClass("d-none").text("حدث خطأ أثناء محاولة تسجيل الدخول. ");
+        }
+    ); 
 }
+
+
+function loadClanMembers() {
+   
+    apiRetrieve(
+         '/Admins/GetClanMembers',
+         null,
+         function(response) {   
+            if (response.success) {
+                    var TableSection = $("#membersTableBody"); 
+                    TableSection.empty(); 
+                    response.data.forEach(cm =>{
+                        TableSection.append(`
+                            <tr>
+                                <td> ${cm.fullName}</td>
+                                <td> ${cm.nationalId}</td>
+                                <td> ${cm.phoneNumber}</td>
+                                <td> ${cm.birthDate}</td>
+                                <td> ${cm.gender}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick="editMember(${cm.memberId})">تعديل</button>
+                                    <button class="btn btn-sm btn-danger"  onclick="deleteMember(${cm.memberId})">حذف</button>
+                                </td>
+                            </tr>`); 
+                    });
+            } else {
+                showToast(response.message,'error');
+            }
+            }, 
+            function(error) {
+                $("#MsgError").removeClass("d-none").text("حدث خطأ أثناء محاولة تسجيل الدخول. ");
+            }
+    ); 
+
+}
+

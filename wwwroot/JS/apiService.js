@@ -25,6 +25,7 @@ function showToast(msg, iconType = 'success') {
 //------------------------------------------------------------------------
 
 
+
 function apiLogin(pathEndpoint,userData, onSuccess, onError) {
   
     $.ajax({
@@ -44,3 +45,27 @@ function apiLogin(pathEndpoint,userData, onSuccess, onError) {
     });
 }
 
+
+function apiRetrieve(pathEndpoint, userData, onSuccess, onError) {
+  
+      var ajaxConfig = {
+         url: pathEndpoint,
+         method: "GET", //      
+         contentType: "application/json; charset=utf-8",
+         dataType: "json", 
+        success: function(data) {
+            if (onSuccess) onSuccess(data);
+        },
+        error: function(xhr, status, error) {
+            //          
+            const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : error;
+            if (onError) onError(errorMessage);
+        }
+      }; 
+      if(userData){
+        ajaxConfig.data = JSON.stringify(userData)
+      }
+
+
+    $.ajax(ajaxConfig);
+}

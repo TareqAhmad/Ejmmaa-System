@@ -20,7 +20,7 @@ namespace Ejmmaa.Services.Implementations
             }
 
 
-        public UserInfo Login(LoginRequest loginRequest)
+        public UserViewModel Login(LoginRequest loginRequest)
         {
             string passwordHash = _helper.ComputeMd5Hash(loginRequest.password);
             
@@ -40,7 +40,7 @@ namespace Ejmmaa.Services.Implementations
           if (dt.Rows.Count > 0)
           {  
               var row = dt.Rows[0];
-              return new UserInfo
+              return new UserViewModel
               {
                   UserID = Convert.ToInt32(row["userId"]),
                   FullName = row["FullName"].ToString(),
