@@ -2,30 +2,47 @@
 
 $(document).ready(function() {
     // Your code here
+    
+    $('#showPassword').change(function(){
+        if($(this).is(":checked")){
+            $("#password").attr("type","text");
+        }else{
+            $("#password").attr("type","password");
+        } 
+    });
 
     $('#btnSuperAdminLogin').on('click', function(e) {
         e.preventDefault(); // منع الإرسال الافتراضي للنموذج  
-
-        $.ajax({
-            url: '/SuperAdmin/Dashboard', // رابط إرسال الطلب
-            type: 'GET', // نوع الطلب
-            success: function(response) {
-                console.log('Success:', response);
-                
-                // استدعاء الدالة العالمية مباشرة من ملف apiService.js
-                showToast('جاري تحويلك إلى صندوق الاقتراع الإلكتروني...', 'success');
-                
-                // التوجيه التلقائي لصفحة المقترع
-                setTimeout(function() {
-                    window.location.href = '/SuperAdmin/Dashboard';
-                }, 1000); // تأخير بسيط بمقدار ثانية ليظهر التنبيه الأنيق للمستخدم
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-                
-                // استدعاء الدالة العالمية في حالة الخطأ
-                showToast('حدث خطأ أثناء الانتقال لصفحة المقترع. الرجاء المحاولة مرة أخرى.', 'error');
-            }
-        }); 
+        loginUser(); // استدعاء الدالة loginUser مباشرة عند الضغط على زر تسجيل الدخول
     }); 
 });
+
+
+
+function loginUser(){
+   
+    var userdata = {
+        userName : $("#superAdminEmail").val(),
+        password : $("#superAdminPassword").val(),
+    }
+
+    apiLogin(
+        pathEndpoint = '/SuperAdmin/Login',
+        userdata, 
+        function(response) {   
+           if (response.success) {
+                showToast(response.message, 'success');
+                setTimeout(function() {
+                     window.location.href = '/SuperAdmin/Dashboard';
+                }, 1000);
+          } else {
+        
+             $("#MsgError").removeClass("d-none").text(response.message);
+             $("#MsgError").text(response.message);
+          }
+       }, 
+        function(error) {
+             $("#MsgError").removeClass("d-none").text("حدث خطأ أثناء محاولة تسجيل الدخول. ");
+        }
+    );
+}

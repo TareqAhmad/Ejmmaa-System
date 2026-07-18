@@ -25,4 +25,22 @@ function showToast(msg, iconType = 'success') {
 //------------------------------------------------------------------------
 
 
+function apiLogin(pathEndpoint,userData, onSuccess, onError) {
+  
+    $.ajax({
+        url: pathEndpoint,
+        method: "POST", //      
+        contentType: "application/json; charset=utf-8",
+        dataType: "json", //      
+        data: JSON.stringify(userData),
+        success: function(data) {
+            if (onSuccess) onSuccess(data);
+        },
+        error: function(xhr, status, error) {
+            //          
+            const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : error;
+            if (onError) onError(errorMessage);
+        }
+    });
+}
 
