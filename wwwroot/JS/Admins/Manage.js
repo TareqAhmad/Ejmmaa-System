@@ -1,12 +1,10 @@
 $(document).ready(function () {
    
-   
-   
    initializePage();
 
 });
 
-
+    
 
 // --- 2. Initialization ---
 function initializePage() {

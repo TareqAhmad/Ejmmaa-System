@@ -1,0 +1,28 @@
+
+
+@{
+    ViewData["Title"] = "إضافة أقسام للعشيرة - إجماع";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Sections/Create.css" />
+}
+
+<div class="container-fluid py-4">
+
+    <div class="card shadow-sm border-0 p-3">
+        <form id="addSectionForm" class="d-flex gap-2 align-items-center">
+            <h6 class="mb-0 text-nowrap fw-bold">إضافة قسم:</h6>
+            <div class="flex-grow-1">
+                <input type="text" class="form-control" name="SectionName" placeholder="أدخل اسم القسم الجديد..." required>
+            </div>
+            <button type="submit" class="btn btn-gold text-nowrap">
+                <i class="bi bi-plus-lg"></i> حفظ
+            </button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/JS/ٍSections/Create.js"></script>
+}

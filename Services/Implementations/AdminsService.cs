@@ -130,11 +130,11 @@ namespace Ejmmaa.Services.Implementations
             
             string query = @"SELECT MemberId,fullName,NationalId,PhoneNumber,BirthDate,Gender
                             FROM Clan_Members
-                            where SectionId = @SectionId"; 
+                            where ClanId = @ClanId"; 
             
             var parameters = new[]
             {
-                new SqlParameter("@SectionId",3),
+                new SqlParameter("@ClanId",user.ClanId),
             };               
             
          DataTable dt = _dbHelper.Select(query,parameters);       

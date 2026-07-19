@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "إضافة فرد جديد - إجماع";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Members/Create.css" />
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <h4 class="fw-bold text-gold"><i class="bi bi-person-plus"></i> إضافة فرد جديد للهيئة العامة</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form id="addMemberForm">
+                        <div class="row g-3">
+                            <div class="row-md-6">
+                                <label class="form-label">الاسم الكامل</label>
+                                <input type="text" class="form-control" name="fullName" required>
+                            </div>
+                            <div class="row-md-6">
+                                <label class="form-label">الرقم الوطني</label>
+                                <input type="text" class="form-control" name="nationalId" required>
+                            </div>
+                            <div class="row-md-6">
+                                <label class="form-label">القسم / الفخذ</label>
+                                <select class="form-select" name="sectionId" id="sectionSelect">
+                                    <option value="">اختر القسم...</option>
+                                </select>
+                            </div>
+                            <div class="row-md-6">
+                                <label class="form-label">تاريخ الميلاد</label>
+                                <input type="date" class="form-control" name="birthDate">
+                            </div>
+                            <div class="row-md-6">
+                                <label class="form-label"الجنس<label>
+                                <select class="form-select" name="GenderId" id="GenderSelect">
+                                    <option value="">اختر الجنس...</option>
+                                </select>
+                            </div>
+                            <div class="col-12 text-end mt-4">
+                                <button type="button" class="btn btn-secondary" onclick="history.back()">إلغاء</button>
+                                <button type="submit" class="btn btn-gold px-4">حفظ البيانات</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/JS/Members/Create.js"></script>
+}
