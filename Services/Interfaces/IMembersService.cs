@@ -6,6 +6,7 @@ namespace Ejmmaa.Services.Interfaces
 {
     public interface IMembersService
     {
-
+          
+          public bool SaveMember(MemberDto  memberDto); 
     }
 }

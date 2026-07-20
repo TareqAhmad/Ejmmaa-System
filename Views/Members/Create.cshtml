@@ -18,11 +18,15 @@
                         <div class="row g-3">
                             <div class="row-md-6">
                                 <label class="form-label">الاسم الكامل</label>
-                                <input type="text" class="form-control" name="fullName" required>
+                                <input type="text" class="form-control" name="fullName" id="fullName" required>
                             </div>
                             <div class="row-md-6">
                                 <label class="form-label">الرقم الوطني</label>
-                                <input type="text" class="form-control" name="nationalId" required>
+                                <input type="text" class="form-control" name="nationalId" id="nationalId" required>
+                            </div>
+                            <div class="row-md-6">
+                                <label class="form-label">رقم الهاتف</label>
+                                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" required>
                             </div>
                             <div class="row-md-6">
                                 <label class="form-label">القسم / الفخذ</label>
@@ -32,12 +36,14 @@
                             </div>
                             <div class="row-md-6">
                                 <label class="form-label">تاريخ الميلاد</label>
-                                <input type="date" class="form-control" name="birthDate">
+                                <input type="date" class="form-control" name="birthDate" id="birthDate">
                             </div>
                             <div class="row-md-6">
                                 <label class="form-label"الجنس<label>
-                                <select class="form-select" name="GenderId" id="GenderSelect">
+                                <select class="form-select" name="GenderId" id="genderSelect">
                                     <option value="">اختر الجنس...</option>
+                                    <option value="M">ذكر</option>
+                                     <option value="F">انثى</option>
                                 </select>
                             </div>
                             <div class="col-12 text-end mt-4">
@@ -53,5 +59,6 @@
 </div>
 
 @section Scripts {
+     <script src="~/JS/apiService.js"></script>
     <script src="~/JS/Members/Create.js"></script>
 }

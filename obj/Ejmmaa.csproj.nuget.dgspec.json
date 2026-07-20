@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj": {}
+    "C:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj": {}
   },
   "projects": {
-    "c:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj": {
+    "C:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj",
         "projectName": "Ejmmaa",
-        "projectPath": "c:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj",
+        "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\Ejmmaa.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\obj\\",
+        "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\TASS_Systems\\Ejmmaa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
