@@ -27,6 +27,8 @@ function loginUser(){
         password : $("#password").val(),
     }
 
+    console.log(userdata);
+
     apiLogin(
         pathEndpoint = '/Admins/Login',
         userdata, 

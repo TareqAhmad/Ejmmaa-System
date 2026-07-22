@@ -7,5 +7,7 @@ namespace Ejmmaa.Services.Interfaces
     public interface ISectionsService
     {
 
+          public bool SaveSection(SectionDto  sectionDto); 
+
     }
 }

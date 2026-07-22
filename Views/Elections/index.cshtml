@@ -1,4 +1,4 @@
-@model Ejmmaa.Models.ViewModels.ClanViewModel;
+
 
 @{
     ViewData["Title"] = "إدارة العشيرة الداخلية - إجماع";
@@ -12,14 +12,15 @@
 
 <div class="dashboard-wrapper-layout">
     <aside class="sidebar-wrapper">
-        <div class="sidebar-header"><h4 class="text-gold fw-bold">لجنة العشيرة</h4></div>
+        <div class="sidebar-header"><h4 class="text-gold fw-bold">ادارة العملية الانتخابية</h4></div>
         <nav class="sidebar-nav">
             <a href="#" class="nav-item active"><i class="bi bi-speedometer2"></i> لوحة التحكم</a>
-            <a href="#" class="nav-item"><i class="bi bi-diagram-3"></i>الاقسام</a>
-            <a href="#" class="nav-item"><i class="bi bi-people"></i>الأفراد</a>
-            <a href="@Url.Action("Index","Elections")" class="nav-item"><i class="bi bi-gear"></i> ادارة العملية الانتخابية</a>
+            <a href="#" class="nav-item"><i class="bi bi-gear"></i> المرشيحن</a>
+            <a href="#" class="nav-item"><i class="bi bi-gear"></i> الناخبين</a>
+            <a href="#" class="nav-item"><i class="bi bi-people"></i>مراكز الاقتراع</a>
+            <a href="#" class="nav-item"><i class="bi bi-diagram-3"></i>الصنديق</a>
            <div class="nav-divider"></div>
-           <a href="/" class="nav-item text-danger"><i class="bi bi-box-arrow-right"></i> تسجيل الخروج</a>
+           <a href="@Url.Action("Manage","Admins")" class="nav-item text-danger"><i class="bi bi-box-arrow-right"></i>عودة</a>
         </nav>
     </aside>
 
@@ -45,12 +46,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>@Model.ClanId</td>
-                                <td>@Model.ClanName</td>
-                                <td><span class="badge bg-success">نشط</span></td>
-                                <td><button class="btn btn-sm btn-outline-primary">تعديل</button></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

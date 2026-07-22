@@ -15,9 +15,11 @@ builder.Services.AddScoped<Helper>();
 builder.Services.AddScoped<IAdminsService, AdminsService>();
 builder.Services.AddScoped<ISuperAdminService, SuperAdminService>();
 builder.Services.AddScoped<ISupervisorsService, SupervisorsService>();
-builder.Services.AddScoped<IVotersService, VotersService>();
-builder.Services.AddScoped<IMembersService,MembersService>(); 
+builder.Services.AddScoped<IClansService,ClansService>(); 
 builder.Services.AddScoped<ISectionsService,SectionsService>(); 
+builder.Services.AddScoped<IMembersService,MembersService>(); 
+builder.Services.AddScoped<IVotersService, VotersService>();
+
 
 var app = builder.Build();
 

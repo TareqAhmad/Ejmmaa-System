@@ -11,12 +11,11 @@ namespace Ejmmaa.Controllers
 {
  
      [SessionCheckFilter]
-    public class SectionsController : Controller
+    public class ElectionsController : Controller
     {
-            
         private readonly ISectionsService _sectionsService; 
 
-        public SectionsController(ISectionsService sectionsService)
+        public ElectionsController(ISectionsService sectionsService)
         {
             _sectionsService  = sectionsService;
         }
@@ -41,19 +40,7 @@ namespace Ejmmaa.Controllers
             return View(); 
         }
        
-       public IActionResult SaveSection([FromBody]SectionDto  sectionDto)
-        {
-            int? clanId = HttpContext.Session.GetInt32("ClanId"); 
 
-            sectionDto.ClanId = clanId.Value; 
-             
-            var result  = _sectionsService.SaveSection(sectionDto); 
-             
-             if(result)
-               return Json(new {success = true,message = "تم الاضافة بنجاح"}); 
-            else
-             return Json(new {success = false ,message = "حدث خطأ اثناء الاضافة"});  
-        }
 
     }
 

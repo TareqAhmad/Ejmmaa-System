@@ -23,7 +23,7 @@ namespace Ejmmaa.Services.Implementations
 
         public UserViewModel Login(LoginRequest loginRequest)
         {
-            string passwordHash = _helper.ComputeMd5Hash(loginRequest.password);
+            string passwordHash = _helper.ComputeMd5Hash(loginRequest.Password);
             
             string query = @"SELECT userId,FullName,TenantId,ClanId
                              FROM System_Users
@@ -32,7 +32,7 @@ namespace Ejmmaa.Services.Implementations
             
             var parameters = new[]
             {
-                new SqlParameter("@UserName", loginRequest.userName),
+                new SqlParameter("@UserName", loginRequest.UserName),
                 new SqlParameter("@Password", passwordHash)
             };
 
@@ -53,43 +53,7 @@ namespace Ejmmaa.Services.Implementations
           throw new InvalidOperationException("Invalid username or password");
         }
 
-        public ClanViewModel GetClanData(UserDto user)
-        {
-            ClanViewModel clan = null; 
 
-            string query  = @"SELECT ClanId,ClanName,CreatedAt
-                              FROM Clans
-                              WHERE ClanId = @ClanId
-                              AND TenantId = @TenantId
-                               AND IsActive = 1"; 
-
-                              
-            var parameters = new[]
-            {
-                new SqlParameter("@ClanId", user.ClanId),
-                new SqlParameter("@TenantId", user.TenantId)
-            };               
-             
-             
-          DataTable dt = _dbHelper.Select(query,parameters);       
-          
-          if (dt.Rows.Count > 0)
-          {  
-              var row = dt.Rows[0];
-              return new ClanViewModel
-              {
-                  ClanId  = Convert.ToInt32(row["ClanId"]),
-                  ClanName = row["ClanName"].ToString(),
-                  CreatedAt = Convert.ToDateTime(row["CreatedAt"]),
-
-              };
-          }
-
-          throw new InvalidOperationException("Invalid username or password");
-
-
-            
-        } 
 
        public List<ClanSectionsViewModel> GetClanSectionsData(UserDto user)
         {

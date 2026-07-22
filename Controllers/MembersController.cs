@@ -10,6 +10,7 @@ using Ejmmaa.Models.ViewModels;
 namespace Ejmmaa.Controllers
 {
 
+     [SessionCheckFilter]
     public class MembersController : Controller
     {
            

@@ -10,13 +10,13 @@ using Ejmmaa.Models.ViewModels;
 namespace Ejmmaa.Controllers
 {
  
-     [SessionCheckFilter]
-    public class SectionsController : Controller
+    [SessionCheckFilter]
+    public class ClansController : Controller
     {
             
         private readonly ISectionsService _sectionsService; 
 
-        public SectionsController(ISectionsService sectionsService)
+        public ClansController(ISectionsService sectionsService)
         {
             _sectionsService  = sectionsService;
         }
@@ -41,7 +41,7 @@ namespace Ejmmaa.Controllers
             return View(); 
         }
        
-       public IActionResult SaveSection([FromBody]SectionDto  sectionDto)
+       public IActionResult SaveClan([FromBody]SectionDto  sectionDto)
         {
             int? clanId = HttpContext.Session.GetInt32("ClanId"); 
 

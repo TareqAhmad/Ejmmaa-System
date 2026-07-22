@@ -22,7 +22,7 @@ namespace Ejmmaa.Services.Implementations
 
         public UserViewModel Login(LoginRequest loginRequest)
         {
-            string passwordHash = _helper.ComputeMd5Hash(loginRequest.password);
+            string passwordHash = _helper.ComputeMd5Hash(loginRequest.Password);
             
             string query = @"SELECT supervisorId,FullName
                              FROM Election_Supervisors
@@ -31,7 +31,7 @@ namespace Ejmmaa.Services.Implementations
             
             var parameters = new[]
             {
-                new SqlParameter("@UserName", loginRequest.userName),
+                new SqlParameter("@UserName", loginRequest.UserName),
                 new SqlParameter("@Password", passwordHash)
             };
 

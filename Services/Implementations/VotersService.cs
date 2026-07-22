@@ -33,8 +33,8 @@ namespace Ejmmaa.Services.Implementations
             
             var parameters = new[]
             {
-                new SqlParameter("@UserName", loginRequest.userName),
-                new SqlParameter("@Password", loginRequest.password)
+                new SqlParameter("@UserName", loginRequest.UserName),
+                new SqlParameter("@Password", loginRequest.Password)
             };
 
           DataTable dt = _dbHelper.Select(query,parameters);       

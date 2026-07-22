@@ -12,10 +12,12 @@ namespace Ejmmaa.Controllers
     {
 
        private readonly IAdminsService _adminsService; 
+       private readonly IClansService _clansService; 
 
-       public AdminsController(IAdminsService adminsService)
+       public AdminsController(IAdminsService adminsService,IClansService clansService)
         {
             _adminsService = adminsService; 
+            _clansService = clansService; 
         }
         public IActionResult Index()
         {
@@ -25,7 +27,7 @@ namespace Ejmmaa.Controllers
         [HttpPost]
         public IActionResult Login([FromBody]LoginRequest loginRequest)
         {
-            if (loginRequest.userName == null || loginRequest.password == null)
+            if (loginRequest.UserName == null || loginRequest.Password == null)
             {
                return  Json(new { success = false, message = "اسم المستخدم أو كلمة المرور غير صحيحة." });
             }
@@ -62,7 +64,7 @@ namespace Ejmmaa.Controllers
                 ClanId = clanId.Value
             }; 
 
-            var Clan = _adminsService.GetClanData(user); 
+            var Clan = _clansService.GetClanData(user); 
 
             return View(Clan);
         }

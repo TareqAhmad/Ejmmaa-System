@@ -29,7 +29,7 @@ namespace Ejmmaa.Controllers
          [HttpPost]
         public IActionResult Login([FromBody]LoginRequest loginRequest)
         {
-            if (loginRequest.userName == null || loginRequest.password == null)
+            if (loginRequest.UserName == null || loginRequest.Password == null)
             {
                return  Json(new { success = false, message = "اسم المستخدم أو كلمة المرور غير صحيحة." });
             }
